@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>添加新的联系人页面</title>
+</head>
+<body>
+    
+<script>
+    function check(){//     检查
+
+        var name = document.getElementById("name").value;
+        var tel = document.getElementById("tel").value;
+        var mail = document.getElementById("mail").value; 
+        var location = document.getElementById("location").value;
+        var qq = document.getElementById("qq").value;
+        var vx = document.getElementById("vx").value;
+
+        empty = /^[ ]+$/;
+        if(name == null || name == '' || name.indexOf(" ") != -1){
+            alert("请输入名字")
+            return false;
+        }
+        digit = /^\d*$/;
+        if(!digit.test(tel) || tel.length == 0){
+            alert("电话号码错误")
+            return false;
+        }
+        if(tel.length != 11){
+            alert("电话号码错误");
+            return false;
+        }
+        var re=/^\w+@[a-z0-9]+\.[a-z]+$/i;
+        if(!re.test(mail) || mail.length == 0){
+            alert("邮箱错误");
+            return false;
+        }
+        if(location.length == 0){
+            alert("地址错误");
+            return false;   
+        }
+        return true;
+    }
+</script>
+<style>
+body{background-color: rgb(162, 177, 145); }
+.MYform{width: 300px; margin: auto; padding: 10px;font-size: 20px; }
+.title{margin: auto; width: 180px;text-align: center;font-size: 22px;color: rgb(53, 123, 180);}
+</style>
+
+<p class="title"><b>添加联系人</b></p>
+<form name="MYform" class="MYform" action="通讯录列表页面.html" method="POST" onsubmit="return check()">
+
+    姓名<input type="text" id="name"/><br>
+    电话<input type="text" id="tel"><br>
+    邮箱<input type="text" id="mail"><br>
+    住址<input type="text" id="location"><br>
+     Q Q<input type="text" id="qq"><br>
+    微信<input type="text"  id="vx"><br> 
+    <input type="submit" value="提交" />
+</form>    
+</body>    
+</html>
